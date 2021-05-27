@@ -1,0 +1,5 @@
+t = (10, 21, 14, 4, 7)
+print(t[0])
+print(t[1:3])
+t.index()
+t.count()

@@ -1,3 +1,4 @@
+
 class Student:
     # global variable, instance, attr
     stu_name = ""

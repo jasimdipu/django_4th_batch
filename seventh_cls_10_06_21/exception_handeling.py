@@ -39,4 +39,3 @@ try:
         raise AlphabeticException
 except Exception:
     print("Please enter an elphabet")
-

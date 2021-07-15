@@ -1,0 +1,42 @@
+{% extends 'main.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <div class="card card-body">
+                    <a class="btn btn-primary  btn-sm btn-block" href="{% url 'create-order' %}">Create Order</a>
+                    <table class="table table-sm">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Order date</th>
+                            <th>Status</th>
+                            <th>Food name</th>
+                            <th>price</th>
+                            <th>Update</th>
+                            <th>Remove</th>
+                        </tr>
+
+                        <tr>
+                            <td>{{ order.customer_id.name }}</td>
+                            <td>{{ order.customer_id.email }}d</td>
+                            <td>{{ order.date_created }}</td>
+                            <td>{{ order.status }}</td>
+                            {% for product in order.product_id.all %}
+                                <td>{{ product.name }}</td>
+                                <td>{{ product.price }}</td>
+                            {% endfor %}
+
+                            <td><a href="{% url 'update-order' order.id %}" class="btn btn-sm btn-info">Update</a>
+                            </td>
+                            <td><a href="{%  url 'delete-order' order.id %}" class="btn btn-sm btn-danger">Delete</a></td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+{% block content %}
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <div class="card card-body">
+                    <a class="btn btn-primary  btn-sm btn-block" href="{% url 'create-order' %}">Create Order</a>
+                    <p class="mt-5">Are you sure want to delete {{ item }}?</p>
+                    <form action="{% url 'delete-order' item.id %}" method="post">
+                        {% csrf_token %}
+                        <a href="{% url 'home' %}">Cancel</a>
+                        <input type="submit" name="Confirm">
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
